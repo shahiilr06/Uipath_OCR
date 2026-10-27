@@ -1,0 +1,9 @@
+# UiPath generated and local directories
+.local/
+.project/
+.tmh/
+
+# Temporary files
+*.tmp
+*.backup
+*.log

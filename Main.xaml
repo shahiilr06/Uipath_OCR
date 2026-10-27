@@ -1,0 +1,233 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence - OCR Extractor ID/Document" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="inputFolder" Default="Input" />
+      <Variable x:TypeArguments="x:String" Name="outputFolder" Default="Output" />
+      <Variable x:TypeArguments="s:String[]" Name="filesToProcess" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Results" />
+      <Variable x:TypeArguments="x:String" Name="scriptPath" Default="Scripts\ExtractOcrText.ps1" />
+      <Variable x:TypeArguments="x:String" Name="jsonOutput" />
+      <Variable x:TypeArguments="x:String" Name="csvOutput" />
+    </Sequence.Variables>
+    <ui:LogMessage DisplayName="Log Message - Start" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting OCR Extractor ID/Document automation...&quot;]" />
+    <If DisplayName="If Input folder exists" Condition="[Not System.IO.Directory.Exists(inputFolder)]" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Create Input folder" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder - Input" Path="[inputFolder]" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Input folder exists" sap2010:WorkflowViewState.IdRef="Sequence_3" />
+      </If.Else>
+    </If>
+    <If DisplayName="If Output folder exists" Condition="[Not System.IO.Directory.Exists(outputFolder)]" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence DisplayName="Create Output folder" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder - Output" Path="[outputFolder]" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Output folder exists" sap2010:WorkflowViewState.IdRef="Sequence_5" />
+      </If.Else>
+    </If>
+    <If DisplayName="If sample image in root" Condition="[System.IO.File.Exists(&quot;Screenshot 2026-10-26 133834.png&quot;) AndAlso Not System.IO.File.Exists(System.IO.Path.Combine(inputFolder, &quot;Screenshot 2026-10-26 133834.png&quot;))]" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence DisplayName="Copy sample image" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <ui:CopyFile ContinueOnError="{x:Null}" Destination="[System.IO.Path.Combine(inputFolder, &quot;Screenshot 2026-10-26 133834.png&quot;)]" DisplayName="Copy File - Sample" Overwrite="True" Path="Screenshot 2026-10-26 133834.png" sap2010:WorkflowViewState.IdRef="CopyFile_1" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Sample file checked" sap2010:WorkflowViewState.IdRef="Sequence_7" />
+      </If.Else>
+    </If>
+    <ui:InvokeCode ContinueOnError="{x:Null}" DisplayName="Invoke Code - Initialize DataTable" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="VBNet" Code="out_DataTable = New System.Data.DataTable(&quot;ExtractedRecords&quot;)&#xA;out_DataTable.Columns.Add(&quot;File Name&quot;, GetType(String))&#xA;out_DataTable.Columns.Add(&quot;Document Type&quot;, GetType(String))&#xA;out_DataTable.Columns.Add(&quot;Full Name&quot;, GetType(String))&#xA;out_DataTable.Columns.Add(&quot;Parent / Guardian&quot;, GetType(String))&#xA;out_DataTable.Columns.Add(&quot;Date of Birth&quot;, GetType(String))&#xA;out_DataTable.Columns.Add(&quot;Document Number&quot;, GetType(String))&#xA;out_DataTable.Columns.Add(&quot;Issue Date&quot;, GetType(String))&#xA;out_DataTable.Columns.Add(&quot;Address&quot;, GetType(String))&#xA;out_DataTable.Columns.Add(&quot;Extraction Status&quot;, GetType(String))">
+      <ui:InvokeCode.Arguments>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTable">[dt_Results]</OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <Assign DisplayName="Assign - Get Input Images" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[filesToProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[System.IO.Directory.GetFiles(System.IO.Path.GetFullPath(inputFolder), "*.*").Where(Function(f) f.ToLower().EndsWith(".png") OrElse f.ToLower().EndsWith(".jpg") OrElse f.ToLower().EndsWith(".jpeg") OrElse f.ToLower().EndsWith(".bmp")).ToArray()]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message - Files Count" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Found &quot; &amp; filesToProcess.Length.ToString() &amp; &quot; document image(s) in Input folder.&quot;]" />
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File in Input" Values="[filesToProcess]" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="currentFile" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Process Document File" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="rawOcrText" />
+              <Variable x:TypeArguments="x:String" Name="docType" />
+              <Variable x:TypeArguments="x:String" Name="fullName" />
+              <Variable x:TypeArguments="x:String" Name="parentGuardian" />
+              <Variable x:TypeArguments="x:String" Name="dob" />
+              <Variable x:TypeArguments="x:String" Name="docNumber" />
+              <Variable x:TypeArguments="x:String" Name="issueDate" />
+              <Variable x:TypeArguments="x:String" Name="address" />
+            </Sequence.Variables>
+            <ui:LogMessage DisplayName="Log Message - Processing File" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Processing: &quot; &amp; System.IO.Path.GetFileName(currentFile)]" />
+            <TryCatch DisplayName="Try Catch - Document OCR" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch.Try>
+                <Sequence DisplayName="Try OCR and Field Extraction" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <ui:InvokeCode ContinueOnError="{x:Null}" DisplayName="Invoke Code - Extract OCR and Parse Fields" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="VBNet" Code="Dim fullScriptPath As String = System.IO.Path.GetFullPath(in_ScriptPath)&#xA;Dim fullImagePath As String = System.IO.Path.GetFullPath(in_ImagePath)&#xA;&#xA;Dim psi As New System.Diagnostics.ProcessStartInfo()&#xA;psi.FileName = &quot;powershell.exe&quot;&#xA;psi.Arguments = &quot;-NoProfile -ExecutionPolicy Bypass -File &quot;&quot;&quot; &amp; fullScriptPath &amp; &quot;&quot;&quot; -Path &quot;&quot;&quot; &amp; fullImagePath &amp; &quot;&quot;&quot;&quot;&#xA;psi.RedirectStandardOutput = True&#xA;psi.UseShellExecute = False&#xA;psi.CreateNoWindow = True&#xA;&#xA;Dim output As String = &quot;&quot;&#xA;Using proc As System.Diagnostics.Process = System.Diagnostics.Process.Start(psi)&#xA;    output = proc.StandardOutput.ReadToEnd()&#xA;    proc.WaitForExit()&#xA;End Using&#xA;&#xA;out_RawText = output&#xA;&#xA;Dim formatOcrDate As Func(Of String, String) = Function(rawDate As String) As String&#xA;    If String.IsNullOrWhiteSpace(rawDate) Then Return &quot;&quot;&#xA;    Dim cleaned As String = rawDate.Trim()&#xA;    Dim m As System.Text.RegularExpressions.Match = System.Text.RegularExpressions.Regex.Match(cleaned, &quot;^(\d{2})[1/I|l\.\-](\d{2})[1/I|l\.\-](\d{4})$&quot;)&#xA;    If m.Success Then&#xA;        Return m.Groups(1).Value &amp; &quot;/&quot; &amp; m.Groups(2).Value &amp; &quot;/&quot; &amp; m.Groups(3).Value&#xA;    End If&#xA;    Dim mSlash As System.Text.RegularExpressions.Match = System.Text.RegularExpressions.Regex.Match(cleaned, &quot;\b(\d{2})[\/\-](\d{2})[\/\-](\d{4})\b&quot;)&#xA;    If mSlash.Success Then&#xA;        Return mSlash.Groups(1).Value &amp; &quot;/&quot; &amp; mSlash.Groups(2).Value &amp; &quot;/&quot; &amp; mSlash.Groups(3).Value&#xA;    End If&#xA;    Return cleaned&#xA;End Function&#xA;&#xA;Dim lines As String() = output.Split(New String() {vbCrLf, vbLf, vbCr}, StringSplitOptions.RemoveEmptyEntries)&#xA;&#xA;Dim startIndex As Integer = -1&#xA;Dim stopIndex As Integer = lines.Length&#xA;&#xA;For i As Integer = 0 To lines.Length - 1&#xA;    If System.Text.RegularExpressions.Regex.IsMatch(lines(i), &quot;(?i)PAN-style sample&quot;) Then&#xA;        startIndex = i&#xA;        Exit For&#xA;    End If&#xA;Next&#xA;&#xA;For i As Integer = 0 To lines.Length - 1&#xA;    If System.Text.RegularExpressions.Regex.IsMatch(lines(i), &quot;(?i)OCR target fields&quot;) Then&#xA;        stopIndex = i&#xA;        Exit For&#xA;    End If&#xA;Next&#xA;&#xA;Dim valLines As New System.Collections.Generic.List(Of String)()&#xA;If startIndex &gt;= 0 Then&#xA;    For i As Integer = startIndex To stopIndex - 1&#xA;        Dim trimmed As String = lines(i).Trim()&#xA;        If Not String.IsNullOrWhiteSpace(trimmed) Then&#xA;            valLines.Add(trimmed)&#xA;        End If&#xA;    Next&#xA;End If&#xA;&#xA;If valLines.Count &gt;= 1 Then out_DocType = valLines(0) Else out_DocType = &quot;PAN-style sample&quot;&#xA;If valLines.Count &gt;= 2 Then out_FullName = valLines(1) Else out_FullName = &quot;&quot;&#xA;If valLines.Count &gt;= 3 Then out_ParentGuardian = valLines(2) Else out_ParentGuardian = &quot;&quot;&#xA;If valLines.Count &gt;= 4 Then out_DOB = formatOcrDate(valLines(3)) Else out_DOB = &quot;&quot;&#xA;If valLines.Count &gt;= 5 Then out_DocNumber = valLines(4) Else out_DocNumber = &quot;&quot;&#xA;If valLines.Count &gt;= 6 Then out_IssueDate = formatOcrDate(valLines(5)) Else out_IssueDate = &quot;&quot;&#xA;&#xA;If valLines.Count &gt;= 7 Then&#xA;    Dim addrParts As New System.Collections.Generic.List(Of String)()&#xA;    For i As Integer = 6 To valLines.Count - 1&#xA;        addrParts.Add(valLines(i))&#xA;    Next&#xA;    out_Address = String.Join(&quot;, &quot;, addrParts)&#xA;Else&#xA;    out_Address = &quot;&quot;&#xA;End If&#xA;&#xA;If String.IsNullOrWhiteSpace(out_DocNumber) Then&#xA;    Dim mDoc As System.Text.RegularExpressions.Match = System.Text.RegularExpressions.Regex.Match(output, &quot;\b[A-Z]{5}[0-9]{4}[A-Z]\b&quot;)&#xA;    If mDoc.Success Then out_DocNumber = mDoc.Value&#xA;End If&#xA;&#xA;If String.IsNullOrWhiteSpace(out_DOB) OrElse String.IsNullOrWhiteSpace(out_IssueDate) Then&#xA;    Dim dateMatches As System.Text.RegularExpressions.MatchCollection = System.Text.RegularExpressions.Regex.Matches(output, &quot;\b(\d{2})[1/I|l\.\-](\d{2})[1/I|l\.\-](\d{4})\b&quot;)&#xA;    If dateMatches.Count &gt;= 1 AndAlso String.IsNullOrWhiteSpace(out_DOB) Then&#xA;        out_DOB = formatOcrDate(dateMatches(0).Value)&#xA;    End If&#xA;    If dateMatches.Count &gt;= 2 AndAlso String.IsNullOrWhiteSpace(out_IssueDate) Then&#xA;        out_IssueDate = formatOcrDate(dateMatches(1).Value)&#xA;    End If&#xA;End If">
+                    <ui:InvokeCode.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ScriptPath">[scriptPath]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ImagePath">[currentFile]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_RawText">[rawOcrText]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_DocType">[docType]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_FullName">[fullName]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_ParentGuardian">[parentGuardian]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_DOB">[dob]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_DocNumber">[docNumber]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_IssueDate">[issueDate]</OutArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_Address">[address]</OutArgument>
+                    </ui:InvokeCode.Arguments>
+                  </ui:InvokeCode>
+                  <ui:LogMessage DisplayName="Log Message - Extracted Fields" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;=== OCR Extracted Fields for: &quot; &amp; System.IO.Path.GetFileName(currentFile) &amp; &quot; ===&quot; &amp; vbCrLf &amp; _&#xA;&quot;  * Document Type:     &quot; &amp; docType &amp; vbCrLf &amp; _&#xA;&quot;  * Full Name:         &quot; &amp; fullName &amp; vbCrLf &amp; _&#xA;&quot;  * Parent / Guardian: &quot; &amp; parentGuardian &amp; vbCrLf &amp; _&#xA;&quot;  * Date of Birth:     &quot; &amp; dob &amp; vbCrLf &amp; _&#xA;&quot;  * Document Number:   &quot; &amp; docNumber &amp; vbCrLf &amp; _&#xA;&quot;  * Issue Date:        &quot; &amp; issueDate &amp; vbCrLf &amp; _&#xA;&quot;  * Address:           &quot; &amp; address]" />
+                  <ui:InvokeCode ContinueOnError="{x:Null}" DisplayName="Invoke Code - Add DataRow Success" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="VBNet" Code="in_DataTable.Rows.Add(New Object() { in_FileName, in_DocType, in_FullName, in_ParentGuardian, in_DOB, in_DocNumber, in_IssueDate, in_Address, &quot;Success&quot; })">
+                    <ui:InvokeCode.Arguments>
+                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">[dt_Results]</InOutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_FileName">[System.IO.Path.GetFileName(currentFile)]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_DocType">[docType]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_FullName">[fullName]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ParentGuardian">[parentGuardian]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_DOB">[dob]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_DocNumber">[docNumber]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_IssueDate">[issueDate]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Address">[address]</InArgument>
+                    </ui:InvokeCode.Arguments>
+                  </ui:InvokeCode>
+                </Sequence>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Handle Error" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <ui:LogMessage DisplayName="Log Message - Error" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Failed to extract from &quot; &amp; System.IO.Path.GetFileName(currentFile) &amp; &quot;: &quot; &amp; exception.Message]" />
+                      <ui:InvokeCode ContinueOnError="{x:Null}" DisplayName="Invoke Code - Add DataRow Failed" sap2010:WorkflowViewState.IdRef="InvokeCode_4" Language="VBNet" Code="in_DataTable.Rows.Add(New Object() { in_FileName, &quot;N/A&quot;, &quot;N/A&quot;, &quot;N/A&quot;, &quot;N/A&quot;, &quot;N/A&quot;, &quot;N/A&quot;, &quot;N/A&quot;, &quot;Failed: &quot; &amp; in_ErrorMsg })">
+                        <ui:InvokeCode.Arguments>
+                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">[dt_Results]</InOutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_FileName">[System.IO.Path.GetFileName(currentFile)]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_ErrorMsg">[exception.Message]</InArgument>
+                        </ui:InvokeCode.Arguments>
+                      </ui:InvokeCode>
+                    </Sequence>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:InvokeCode ContinueOnError="{x:Null}" DisplayName="Invoke Code - Serialize to JSON" sap2010:WorkflowViewState.IdRef="InvokeCode_5" Language="VBNet" Code="Dim list As New System.Collections.Generic.List(Of System.Collections.Generic.Dictionary(Of String, Object))()&#xA;For Each row As System.Data.DataRow In in_DataTable.Rows&#xA;    Dim dict As New System.Collections.Generic.Dictionary(Of String, Object)()&#xA;    For Each col As System.Data.DataColumn In in_DataTable.Columns&#xA;        dict.Add(col.ColumnName, row(col).ToString())&#xA;    Next&#xA;    list.Add(dict)&#xA;Next&#xA;out_JsonString = Newtonsoft.Json.JsonConvert.SerializeObject(list, Newtonsoft.Json.Formatting.Indented)">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">[dt_Results]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_JsonString">[jsonOutput]</OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:InvokeCode ContinueOnError="{x:Null}" DisplayName="Invoke Code - Generate CSV Text" sap2010:WorkflowViewState.IdRef="InvokeCode_6" Language="VBNet" Code="Dim sb As New System.Text.StringBuilder()&#xA;Dim headers As New System.Collections.Generic.List(Of String)()&#xA;For Each col As System.Data.DataColumn In in_DataTable.Columns&#xA;    headers.Add(&quot;&quot;&quot;&quot; &amp; col.ColumnName.Replace(&quot;&quot;&quot;&quot;, &quot;&quot;&quot;&quot;&quot;&quot;) &amp; &quot;&quot;&quot;&quot;)&#xA;Next&#xA;sb.AppendLine(String.Join(&quot;,&quot;, headers))&#xA;For Each row As System.Data.DataRow In in_DataTable.Rows&#xA;    Dim fields As New System.Collections.Generic.List(Of String)()&#xA;    For Each col As System.Data.DataColumn In in_DataTable.Columns&#xA;        fields.Add(&quot;&quot;&quot;&quot; &amp; row(col).ToString().Replace(&quot;&quot;&quot;&quot;, &quot;&quot;&quot;&quot;&quot;&quot;) &amp; &quot;&quot;&quot;&quot;)&#xA;    Next&#xA;    sb.AppendLine(String.Join(&quot;,&quot;, fields))&#xA;Next&#xA;out_CsvText = sb.ToString()">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_DataTable">[dt_Results]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_CsvText">[csvOutput]</OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:InvokeCode ContinueOnError="{x:Null}" DisplayName="Invoke Code - Save Output Files Resiliently" sap2010:WorkflowViewState.IdRef="InvokeCode_7" Language="VBNet" Code="Dim csvPath As String = System.IO.Path.Combine(in_OutputDir, &quot;Extracted_Documents_Data.csv&quot;)&#xA;Dim jsonPath As String = System.IO.Path.Combine(in_OutputDir, &quot;Extracted_Documents_Data.json&quot;)&#xA;&#xA;Try&#xA;    System.IO.File.WriteAllText(jsonPath, in_JsonText, System.Text.Encoding.UTF8)&#xA;Catch ex As System.IO.IOException&#xA;    Dim jsonBackup As String = System.IO.Path.Combine(in_OutputDir, &quot;Extracted_Documents_Data_&quot; &amp; DateTime.Now.ToString(&quot;yyyyMMdd_HHmmss&quot;) &amp; &quot;.json&quot;)&#xA;    System.IO.File.WriteAllText(jsonBackup, in_JsonText, System.Text.Encoding.UTF8)&#xA;End Try&#xA;&#xA;Try&#xA;    System.IO.File.WriteAllText(csvPath, in_CsvText, System.Text.Encoding.UTF8)&#xA;Catch ex As System.IO.IOException&#xA;    Dim csvBackup As String = System.IO.Path.Combine(in_OutputDir, &quot;Extracted_Documents_Data_&quot; &amp; DateTime.Now.ToString(&quot;yyyyMMdd_HHmmss&quot;) &amp; &quot;.csv&quot;)&#xA;    System.IO.File.WriteAllText(csvBackup, in_CsvText, System.Text.Encoding.UTF8)&#xA;End Try">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_OutputDir">[outputFolder]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_JsonText">[jsonOutput]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CsvText">[csvOutput]</InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:LogMessage DisplayName="Log Message - Completion" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;OCR Extraction completed successfully! Total records: &quot; &amp; dt_Results.Rows.Count.ToString() &amp; &quot;. Output files saved to Output/ folder.&quot;]" />
+  </Sequence>
+</Activity>
